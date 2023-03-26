@@ -34,14 +34,14 @@ int main()
 		{-0.9330660, -0.0033108, 0.3596900},
 		{0.0000003, -0.9999576, -0.0092033}
 	};
-#pragma endregion
+	#pragma endregion
 
 	#pragma region Translation
 	Eigen::Vector3d tr(1.95704, 1.9300, 1.05707);
 	Eigen::Vector3d tr1(-1.91288, 1.94412, 1.05465);
 	Eigen::Vector3d tr2(1.96978, -1.94622, 1.05264);
 	Eigen::Vector3d tr3(-1.87445, -1.95027, 1.06432);
-#pragma endregion
+	#pragma endregion
 
 	PointCluster cl("Clouds/cam.txt", rot, tr);
 	PointCluster cl1("Clouds/cam1.txt", rot1, tr1);
