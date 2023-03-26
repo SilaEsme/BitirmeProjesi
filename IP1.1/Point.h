@@ -8,16 +8,18 @@ public:
 	Point();
 	Point(double,double,double);
 
-	void setX(double x);
-	double getX() const;
+	#pragma region Sets
+		void setX(double x);
+		void setY(double y);
+		void setZ(double z);
+	#pragma endregion
 
-	void setY(double y);
-	double getY() const;
-
-	void setZ(double z);
-	double getZ() const;
+	#pragma region Gets
+		double getX() const;
+		double getY() const;
+		double getZ() const;
+	#pragma endregion
 
 	bool operator==(const Point& p) const;
-	const double distance(const Point&);
 };
 
