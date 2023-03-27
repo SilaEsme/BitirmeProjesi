@@ -130,6 +130,8 @@
   <ItemGroup>
     <ClCompile Include="IP1.1.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="PointCloud.cpp" />
+    <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Clouds\cam.txt" />
@@ -139,6 +141,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Point.h" />
+    <ClInclude Include="PointCloud.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
