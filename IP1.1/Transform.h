@@ -4,15 +4,18 @@
 class Transform
 {
 private:
-	int _countOfTransformed = 1;
-	std::string _path = "Clouds/";
-	PointCluster _pointCluster;
-	std::vector<Point> _transformedCluster;
+	std::string _path;
+	PointCloud _pointCloud;
+	std::vector<Point> _transformedCloud;
 	void CreateCloudFile();
 public:
 	Transform();
-	Transform(PointCluster cluster, std::string path);
-	void SetPath(std::string path);
+	Transform(PointCloud cloud, std::string path);
+	#pragma region Sets
+		void SetPath(std::string path);
+		void SetPointCloud(PointCloud pointCloud);
+	#pragma endregion
+
 	void DoTransform();
 };
 

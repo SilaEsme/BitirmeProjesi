@@ -21,16 +21,10 @@
     <ClCompile Include="Point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PointCloud.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PointCloud.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PointCluster.cpp">
+    <ClCompile Include="PointCloud.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +41,7 @@
     <ClInclude Include="Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PointCluster.h">
+    <ClInclude Include="PointCloud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

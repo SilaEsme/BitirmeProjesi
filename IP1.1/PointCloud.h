@@ -1,31 +1,39 @@
 #pragma once
 #include <vector>
+#include <string>
 #include <Eigen/Dense>
 #include "Point.h"
-#include "PointCluster.h"
-class PointCloud
+
+class PointCloud //txt
 {
 private:
-	/// <summary>
-	/// Vector of all discrete point clusters.
-	/// </summary>
-	std::vector<PointCluster> _pointCloud;
-
+	std::vector<Point> _pointCloud;
+	std::vector<std::vector<double>> _rotationMatrix;
+	Eigen::Vector3d _translationMatrix;
+	Eigen::Matrix4d _transformationMatrix;
+	std::string _path;
 public:
-	#pragma region Cons
-		PointCloud();
-		PointCloud(std::vector<PointCluster> pointCloud);
-	#pragma endregion
+	PointCloud();
+	PointCloud(std::string path);
+	PointCloud(std::string path, std::vector<std::vector<double>> rotMatrix, Eigen::Vector3d translationMatrix);
 
 	#pragma region Sets
-		void SetPointCloud(std::vector<PointCluster> pointCloud);
+		void SetPath(std::string path);
+		void SetRotationMatrix(std::vector<std::vector<double>> matrix);
+		//void SetRotationMatrix();
+		void SetTranslationMatrix(Eigen::Vector3d matrix);
+		//void SetTranslationMatrix();
 	#pragma endregion
 
 	#pragma region Gets
-		std::vector<PointCluster> GetPointCloud();
+		std::vector<Point> GetPointCloud();
+		std::string GetPath();
+		//std::vector<std::vector<double>> GetRotationMatrix();
+		//Eigen::Vector3d GetTranslationMatrix();
+		Eigen::Matrix4d GetTransformationMatrix();
 	#pragma endregion
-
-	void AddPointsToCloud(PointCluster points);
-	
-
+	void CreateTransformationMatrix();
+	void ReadCloudFromFile();
+	void PrintPointCloud();
 };
+

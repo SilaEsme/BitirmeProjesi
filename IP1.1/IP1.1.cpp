@@ -69,11 +69,3 @@ int main()
 
 	return 0;
 }
-
-void PrintPointCloud(std::vector<Point> list)
-{
-	for (auto v : list)
-	{
-		std::cout << "X:" << v.getX() << " Y: " << v.getY() << " Z: " << v.getZ() << std::endl;
-	}
-}

@@ -3,19 +3,20 @@
 
 Transform::Transform()
 {
-
 }
-Transform::Transform(PointCluster cluster, std::string path)
+Transform::Transform(PointCloud cloud, std::string path)
 {
 	SetPath(path);
-	// TODO: Set method
-	_pointCluster = cluster;
-
+	SetPointCloud(cloud);
 	DoTransform();
 }
 void Transform::SetPath(std::string path)
 {
 	_path = path;
+}
+void Transform::SetPointCloud(PointCloud pointCloud)
+{
+	_pointCloud = pointCloud;
 }
 void Transform::CreateCloudFile()
 {
@@ -23,13 +24,12 @@ void Transform::CreateCloudFile()
 
 	if (outputFile.is_open())
 	{
-		for (auto v : _transformedCluster)
+		for (auto v : _transformedCloud)
 		{
 			outputFile << v.getX() << " " << v.getY() << " " << v.getZ() << std::endl;
 		}
 		outputFile.close();
 	}
-	_countOfTransformed++;
 }
 
 void Transform::DoTransform()
@@ -37,14 +37,14 @@ void Transform::DoTransform()
 	Eigen::Vector4d eigenPoint;
 	Eigen::Vector4d transEigenPoint;
 
-	for (auto v : _pointCluster.GetPointCluster())
+	for (auto v : _pointCloud.GetPointCloud())
 	{
 		Eigen::Vector4d eigenPoint(v.getX(), v.getY(), v.getZ(), 1);
 
-		transEigenPoint = _pointCluster.GetTransformationMatrix() * eigenPoint;
+		transEigenPoint = _pointCloud.GetTransformationMatrix() * eigenPoint;
 
 		Point transformedPoint(transEigenPoint(0), transEigenPoint(1), transEigenPoint(2));
-		_transformedCluster.push_back(transformedPoint);
+		_transformedCloud.push_back(transformedPoint);
 	}
 	CreateCloudFile();
 }
