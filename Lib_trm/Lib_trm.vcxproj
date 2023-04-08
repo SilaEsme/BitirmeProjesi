@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{866c9b1c-094d-4293-8377-e88fb522b2fc}</ProjectGuid>
-    <RootNamespace>IP11</RootNamespace>
+    <ProjectGuid>{c0698b35-63f8-4f2e-b845-089658178307}</ProjectGuid>
+    <RootNamespace>Libtrm</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalUsingDirectories>%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <AdditionalIncludeDirectories>C:\Users\silae\Libraries\eigen-3.4.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -128,10 +129,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="Clouds\cam.txt" />
-    <Text Include="Clouds\cam1.txt" />
-    <Text Include="Clouds\cam2.txt" />
-    <Text Include="Clouds\cam3.txt" />
+    <ClInclude Include="..\IP1.1\Point.h" />
+    <ClInclude Include="..\IP1.1\PointCloud.h" />
+    <ClInclude Include="..\IP1.1\Transform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\IP1.1\Main.cpp" />
+    <ClCompile Include="..\IP1.1\Point.cpp" />
+    <ClCompile Include="..\IP1.1\PointCloud.cpp" />
+    <ClCompile Include="..\IP1.1\Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
