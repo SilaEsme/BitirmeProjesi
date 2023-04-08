@@ -1,14 +1,10 @@
-﻿// IP1.1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-#include "Point.h"
+﻿#include "Point.h"
 #include <iostream>
 #include <string>
 #include <vector>
 #include <Eigen/Dense>
-#include "PointCluster.h"
+#include "PointCloud.h"
 #include "Transform.h"
-
-void PrintPointCloud(std::vector<Point> list);
 
 int main()
 {
@@ -43,27 +39,16 @@ int main()
 	Eigen::Vector3d tr3(-1.87445, -1.95027, 1.06432);
 	#pragma endregion
 
-	PointCluster cl("Clouds/cam.txt", rot, tr);
-	PointCluster cl1("Clouds/cam1.txt", rot1, tr1);
-	PointCluster cl2("Clouds/cam2.txt", rot2, tr2);
-	PointCluster cl3("Clouds/cam3.txt", rot3, tr3);
+	PointCloud cl("Clouds/cam.txt", rot, tr);
+	PointCloud cl1("Clouds/cam1.txt", rot1, tr1);
+	PointCloud cl2("Clouds/cam2.txt", rot2, tr2);
+	PointCloud cl3("Clouds/cam3.txt", rot3, tr3);
 
 	Transform t(cl, "Clouds/tr_cam.txt");
 	Transform t1(cl1, "Clouds/tr_cam1.txt");
 	Transform t2(cl2, "Clouds/tr_cam2.txt");
 	Transform t3(cl3, "Clouds/tr_cam3.txt");
 
-	#pragma region Old
-	//std::vector<Point> p1 = ReadPointsFromFile("Clouds/cam.txt");
-	//std::vector<Point> p2 = ReadPointsFromFile("Clouds/cam1.txt");
-	//std::vector<Point> p3 = ReadPointsFromFile("Clouds/cam2.txt");
-	//std::vector<Point> p4 = ReadPointsFromFile("Clouds/cam3.txt");
-
-	//CreateCloudFile(DoTransform(p1, CreateTransMatrix(SelectRotationMatrix(0), SelectTranslationMatrix(0))),"Clouds/cam_transformed.txt");
-	//CreateCloudFile(DoTransform(p2,CreateTransMatrix(SelectRotationMatrix(1),SelectTranslationMatrix(1))), "Clouds/cam1_transformed.txt");
-	//CreateCloudFile(DoTransform(p3,CreateTransMatrix(SelectRotationMatrix(2),SelectTranslationMatrix(2))), "Clouds/cam2_transformed.txt");
-	//CreateCloudFile(DoTransform(p4,CreateTransMatrix(SelectRotationMatrix(3),SelectTranslationMatrix(3))), "Clouds/cam3_transformed.txt");
-	#pragma endregion
 
 	std::cout << "The end." << std::endl;
 
