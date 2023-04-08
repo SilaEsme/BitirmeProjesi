@@ -11,11 +11,10 @@ private:
 public:
 	Transform();
 	Transform(PointCloud cloud, std::string path);
-	#pragma region Sets
-		void SetPath(std::string path);
-		void SetPointCloud(PointCloud pointCloud);
-	#pragma endregion
+#pragma region Sets
+	void SetPath(std::string path);
+	void SetPointCloud(PointCloud pointCloud);
+#pragma endregion
 
 	void DoTransform();
 };
-

@@ -58,7 +58,7 @@ void PointCloud::CreateTransformationMatrix()
 		std::cerr << "Invalid operation. First define and set rotation and translation matrices." << std::endl;
 		return;
 	}
-	
+
 	for (int j = 0; j < 3; j++) {
 		for (int i = 0; i < 3; i++) {
 			_transformationMatrix(i, j) = _rotationMatrix[i][j];
