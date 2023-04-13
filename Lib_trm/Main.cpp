@@ -7,11 +7,34 @@
 #include "PointCloud.h"
 #include "Transform.h"
 #include <octomap/OcTree.h>
+void copluk() {
+	//void octomap::MapCollection< MAPNODE >::insertScan(const Pointcloud & scan,
+//	const octomap::point3d & sensor_origin,
+//	double 	maxrange = -1.,
+//	bool 	pruning = true,
+//	bool 	lazy_eval = false
+//)
+//octomap::ScanGraph::addNode(pcl, new octomap::point3d(0, 0, 0));
+//octomap::OcTree* ocTree = new octomap::OcTree(1);
 
-int main()
-{
-	std::cout << "Process starting..." << std::endl;
-//#pragma region Rotation
+	//	// Convert txt to bin
+	//std::string graphFilenameTxt = "Clouds/cam.txt";
+	//std::string graphFilenameBin = "Clouds/cam.bin";
+	//std::ifstream in(graphFilenameTxt);
+	//std::ofstream out(graphFilenameBin, std::ios::binary);
+
+	//double d;
+	//while (in >> d) {
+	//	out.write((char*)&d, sizeof d);
+	//}
+
+	//std::cout << "\nReading Graph file\n===========================\n";
+	//octomap::ScanGraph* graph = new octomap::ScanGraph();
+	//if (!graph->readBinary(graphFilenameBin))
+	//	exit(2);
+}
+void Transform() {
+	//#pragma region Rotation
 //	std::vector<std::vector<double>> rot = {
 //	{ -0.7076050, 0.0065031, -0.7065783},
 //	{ 0.7066082, 0.0065134, -0.7075750 },
@@ -48,11 +71,20 @@ int main()
 //	Transform t1(cl1, "Clouds/tr_cam1.txt");
 //	Transform t2(cl2, "Clouds/tr_cam2.txt");
 //	Transform t3(cl3, "Clouds/tr_cam3.txt");
-// 
+}
+void OctomapImplementation();
+int main()
+{
+	std::cout << "Process starting..." << std::endl;
+	//Transform();
+	OctomapImplementation();
+	std::cout << "The end." << std::endl;
+}
+void OctomapImplementation() {
+	
 	// OCTOMAP IMPLEMENTATION
 
 	octomap::Pointcloud* pcl = new octomap::Pointcloud();
-
 	// Read files and and to the octomap::Pointcloud.
 	std::ifstream file("Clouds/tr_cam.txt");
 	std::string tempString;
@@ -86,16 +118,11 @@ int main()
 		file.close();
 	} // end-if
 
-	//void octomap::MapCollection< MAPNODE >::insertScan(const Pointcloud & scan,
-	//	const octomap::point3d & sensor_origin,
-	//	double 	maxrange = -1.,
-	//	bool 	pruning = true,
-	//	bool 	lazy_eval = false
-	//)
-	//octomap::ScanGraph::addNode(pcl, new octomap::point3d(0, 0, 0));
-	//octomap::OcTree* ocTree = new octomap::OcTree(1);
-	//ocTree->insertPointCloud(pcl, new octomap::point3d(0,0,0), (-1.0), false, false, false);
-	
+	octomap::OcTree emptyTree(0.1);
+	octomap::point3d origin(0, 0, 0);
+	emptyTree.insertPointCloud(pcl, origin, (-1.0), false, false);
+	emptyTree.writeBinary("Clouds/ex_tree.bt");
 
-	std::cout << "The end." << std::endl;
+
+	int x = 0;
 }
